@@ -24,7 +24,7 @@ module Paperclip
     end
 
     def copy_to_tempfile(src)
-      FileUtils.cp(src.path, destination.path)
+      FileUtils.ln(src.path, destination.path, :force => true)
       destination
     end
   end
