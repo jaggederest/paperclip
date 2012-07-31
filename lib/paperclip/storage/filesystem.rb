@@ -70,7 +70,7 @@ module Paperclip
     end
 
     def copy_to_local_file(style, local_dest_path)
-      FileUtils.cp(path(style), local_dest_path)
+      FileUtils.ln(path(style), local_dest_path)
     end
 
   end

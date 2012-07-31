@@ -24,7 +24,9 @@ module Paperclip
     end
 
     def copy_to_tempfile(src)
+      FileUtils.chmod(0666&~File.umask, src.path)
       FileUtils.ln(src.path, destination.path, :force => true)
+      FileUtils.chmod(0666&~File.umask, destination.path)      
       destination
     end
   end
